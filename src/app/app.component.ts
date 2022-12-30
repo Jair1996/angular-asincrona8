@@ -1,10 +1,32 @@
 import { Component } from '@angular/core';
 
+interface User {
+  nombre: string;
+  apellidos: string;
+  edad: number | string;
+  condicion: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'asincrona8';
+  inputForm = {
+    nombre: '',
+    apellidos: '',
+    edad: ''
+  }
+
+  usuarios: User[] = []
+
+  agregar() {
+    const user: User = {
+      ...this.inputForm,
+      condicion: ""
+    }
+
+    this.usuarios.push(user)
+  }
 }

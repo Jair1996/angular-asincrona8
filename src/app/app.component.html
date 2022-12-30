@@ -1,23 +1,23 @@
 <main class="container mt-5">
   <div class="row">
     <div class="col-6">
-      <form autocomplete="off">
+      <form autocomplete="off" (ngSubmit)="agregar()">
         <div class="mb-3">
           <label for="txtName" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="txtName">
+          <input [(ngModel)]="inputForm.nombre" name="nombre" type="text" class="form-control" id="txtName">
         </div>
 
         <div class="mb-3">
           <label for="txtApellido" class="form-label">Apellidos</label>
-          <input type="text" class="form-control" id="txtApellido">
+          <input [(ngModel)]="inputForm.apellidos" name="apellidos" type="text" class="form-control" id="txtApellido">
         </div>
 
         <div class="mb-3">
           <label for="txtEdad" class="form-label">Edad</label>
-          <input type="number" class="form-control" id="txtEdad">
+          <input [(ngModel)]="inputForm.edad" name="edad" type="number" class="form-control" id="txtEdad">
         </div>
 
-        <button type="submit" class="btn btn-primary">Agregar</button>
+        <button type="submit" class="btn btn-primary">Agregar Usuario</button>
       </form>
     </div>
   </div>
@@ -33,12 +33,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Jair</td>
-          <td>Tello Vargas</td>
-          <td>26</td>
-          <td>Jair es mayor de edad</td>
+        <tr *ngFor="let usuario of usuarios; let i = index">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{usuario.nombre}}</td>
+          <td>{{usuario.apellidos}}</td>
+          <td>{{usuario.edad}}</td>
+          <td>{{usuario.condicion}}</td>
         </tr>
       </tbody>
     </table>
