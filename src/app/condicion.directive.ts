@@ -14,8 +14,10 @@ export class CondicionDirective implements OnInit {
 
     if (Number(this.usuario.edad < 18)) {
       td.textContent = `${this.usuario.nombre} es menor de edad`;
+      td.classList.add('text-danger');
     } else {
       td.textContent = `${this.usuario.nombre} es mayor de edad`;
+      td.classList.add('text-success');
     }
   }
 }
