@@ -17,6 +17,10 @@
           <input [(ngModel)]="inputForm.edad" name="edad" type="number" class="form-control" id="txtEdad">
         </div>
 
+        <div *ngIf="isInvalid" class="alert alert-danger mb-3" role="alert">
+          Los datos deben ser correctos
+        </div>
+
         <button type="submit" class="btn btn-primary">Agregar Usuario</button>
       </form>
     </div>

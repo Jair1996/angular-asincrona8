@@ -10,23 +10,35 @@ interface User {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   inputForm = {
     nombre: '',
     apellidos: '',
-    edad: ''
-  }
+    edad: '',
+  };
 
-  usuarios: User[] = []
+  usuarios: User[] = [];
+
+  isInvalid = false;
 
   agregar() {
-    const user: User = {
-      ...this.inputForm,
-      condicion: ""
+    if (
+      Object.values(this.inputForm).includes('') ||
+      Number(this.inputForm.edad) <= 0
+    ) {
+      this.isInvalid = true;
+      return;
     }
 
-    this.usuarios.push(user)
+    this.isInvalid = false;
+
+    const user: User = {
+      ...this.inputForm,
+      condicion: '',
+    };
+
+    this.usuarios.push(user);
   }
 }
