@@ -4,7 +4,6 @@ export interface User {
   nombre: string;
   apellidos: string;
   edad: number | string;
-  condicion: string;
 }
 
 @Component({
@@ -36,9 +35,13 @@ export class AppComponent {
 
     const user: User = {
       ...this.inputForm,
-      condicion: '',
     };
 
     this.usuarios.push(user);
+    this.inputForm = {
+      edad: '',
+      apellidos: '',
+      nombre: '',
+    };
   }
 }
