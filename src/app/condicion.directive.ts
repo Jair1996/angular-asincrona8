@@ -1,17 +1,21 @@
 import { Directive, ElementRef, Input, OnInit } from '@angular/core';
+import { User } from './app.component';
 
 @Directive({
   selector: '[appCondicion]',
 })
 export class CondicionDirective implements OnInit {
-  @Input() edad!: string | number;
+  @Input() usuario!: User;
 
   constructor(private elementRef: ElementRef) {}
 
   ngOnInit(): void {
     const td = this.elementRef.nativeElement;
-    console.log(td);
-    console.log(this.edad);
-    console.log(typeof this.edad);
+
+    if (Number(this.usuario.edad < 18)) {
+      td.textContent = `${this.usuario.nombre} es menor de edad`;
+    } else {
+      td.textContent = `${this.usuario.nombre} es mayor de edad`;
+    }
   }
 }

@@ -42,7 +42,7 @@
           <td>{{usuario.nombre}}</td>
           <td>{{usuario.apellidos}}</td>
           <td>{{usuario.edad}}</td>
-          <td appCondicion [edad]="usuario.edad">{{usuario.condicion}}</td>
+          <td appCondicion [usuario]="usuario">{{usuario.condicion}}</td>
         </tr>
       </tbody>
     </table>
